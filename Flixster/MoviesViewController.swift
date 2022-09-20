@@ -11,14 +11,10 @@ import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    
-    
     @IBOutlet weak var tableView: UITableView!
     
     var movies = [[String:Any]]()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,8 +34,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.movies = dataDictionary["results"] as! [[String:Any]]
                 
                 self.tableView.reloadData()
-                print(dataDictionary)
-                
+                //print(dataDictionary)
                 
                     // TODO: Get the array of movies
                     // TODO: Store the movies in a property to use elsewhere
@@ -60,17 +55,36 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let baseUrl = "https://image.tmdb.org/t/p/"
         if let posterPath = movie["poster_path"] as? String {
-            let posterUrl = URL(string: baseUrl + posterPath)
+            let posterUrl = URL(string: baseUrl + "w185" + posterPath)
             cell.posterView.af.setImage(withURL: posterUrl!)
         }
         
         cell.titleLabel?.text = title
         cell.synopsisLabel?.text = overview
         
-        
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Loading up the details screen!")
+        
+        //Find the selected movie
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        
+        //Pass the selected movie to the details view controller
+
+        let detailViewController = segue.destination as! MovieDetailsViewController
+        
+        detailViewController.movie = movie
+        
+        // clear selected shadow on cell
+        tableView.deselectRow(at: indexPath, animated: true)
+    
+        
     }
 }
 
