@@ -226,17 +226,16 @@
             </objects>
             <point key="canvasLocation" x="38" y="1445"/>
         </scene>
-        <!--Movie Details View Controller-->
+        <!--Movie Trailer View Controller-->
         <scene sceneID="7Hy-3b-55O">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sNb-eA-BNy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="zYR-6b-7Jd" customClass="MovieDetailsViewController" customModule="Flixster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieTrailerViewController" id="zYR-6b-7Jd" customClass="MovieTrailerViewController" customModule="Flixster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IhO-qT-dkU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tf3-l4-l9d">
-                                <rect key="frame" x="20" y="136" width="374" height="279"/>
+                                <rect key="frame" x="20" y="67" width="374" height="757"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -248,9 +247,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="sCG-fa-JiQ"/>
                     </view>
+                    <connections>
+                        <outlet property="trailerWView" destination="tf3-l4-l9d" id="2aY-Br-vjQ"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sNb-eA-BNy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1313.0434782608697" y="1685.4910714285713"/>
+            <point key="canvasLocation" x="-1262" y="1460"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="apN-3T-MfN">

@@ -11,24 +11,29 @@ import WebKit
 
 class MovieTrailerViewController: UIViewController {
     
-    @IBOutlet weak var trailerWebView: WKWebView!
+    @IBOutlet weak var trailerWView: WKWebView!
+    
+    var trailerKey: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let trailerURL = URL(string: "https://www.youtube.com/watch?v=SUXWAEX2jlg"){ trailerWebView.load(.init(url: trailerURL))}
+        //        if let trailerURL = URL(string: "https://www.youtube.com/watch?v=SUXWAEX2jlg"){ trailerWebView.load(.init(url: trailerURL))}
+        //
         
-       
-        // Do any additional setup after loading the view.
+        //self.view.addSubview(trailerWebView)
+        let url = URL(string: "https://www.youtube.com/watch?v=" + trailerKey)!
+        trailerWView.load(URLRequest(url: url))
+        
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
